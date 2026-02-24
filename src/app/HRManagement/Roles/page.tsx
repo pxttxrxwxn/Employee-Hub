@@ -83,12 +83,17 @@ export default function Roles() {
     };
 
     const handleEdit = (role: Role) => {
+        console.log("ข้อมูล Role ที่จะแก้ไข:", role);
+        console.log("Permissions จาก DB:", role.permissions);
+        console.log("Permissions Type:", typeof role.permissions);
+        console.log("Is Array?:", Array.isArray(role.permissions));
+
         setEditingId(role.id);
         setFormData({
             nameEN: role.nameEN,
             nameTH: role.nameTH,
-            description: role.description,
-            permissions: role.permissions
+            description: role.description || "",
+            permissions: Array.isArray(role.permissions) ? role.permissions : []
         });
         setIsModalOpen(true);
     };
@@ -294,29 +299,33 @@ export default function Roles() {
                             <div>
                                 <label className="block text-sm font-bold text-black mb-3">สิทธิการใช้งาน <span className="text-red-500">*</span></label>
                                 <div className="grid grid-cols-2 gap-4">
-                                    {PERMISSIONS_LIST.map((perm) => (
-                                        <div 
-                                            key={perm.id} 
-                                            className="flex items-start gap-3 cursor-pointer group"
-                                            onClick={() => handlePermissionToggle(perm.id)}
-                                        >
-                                            <div className={`mt-1 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors
-                                                ${formData.permissions.includes(perm.id)
-                                                    ? "bg-[#009951] border-[#009951]"
-                                                    : "border-gray-400 bg-white group-hover:border-[#009951]"
-                                                }`}
+                                    {PERMISSIONS_LIST.map((perm) => {
+                                        const isChecked = formData.permissions.includes(perm.id);
+                                        
+                                        return (
+                                            <div
+                                                key={perm.id}
+                                                className="flex items-start gap-3 cursor-pointer group"
+                                                onClick={() => handlePermissionToggle(perm.id)}
                                             >
-                                                {formData.permissions.includes(perm.id) && (
-                                                    <div className="w-2 h-2 bg-white rounded-full" />
-                                                )}
+                                                <div className={`mt-1 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors
+                                                    ${isChecked
+                                                        ? "bg-[#009951] border-[#009951]"
+                                                        : "border-gray-400 bg-white group-hover:border-[#009951]"
+                                                    }`}
+                                                >
+                                                    {isChecked && (
+                                                        <div className="w-2 h-2 bg-white rounded-full" />
+                                                    )}
+                                                </div>
+                                                
+                                                <div className="flex flex-col">
+                                                    <span className="text-sm font-bold text-black">{perm.label}</span>
+                                                    <span className="text-xs text-gray-500">{perm.desc}</span>
+                                                </div>
                                             </div>
-                                            
-                                            <div className="flex flex-col">
-                                                <span className="text-sm font-bold text-black">{perm.label}</span>
-                                                <span className="text-xs text-gray-500">{perm.desc}</span>
-                                            </div>
-                                        </div>
-                                    ))}
+                                        );
+                                    })}
                                 </div>
                             </div>
                         </div>
