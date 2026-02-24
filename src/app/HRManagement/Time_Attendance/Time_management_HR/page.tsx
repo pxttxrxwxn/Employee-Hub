@@ -147,6 +147,7 @@ export default function TimeAttendanceHR() {
                 <th className="p-4">เวลาออก</th>
                 <th className="p-4">ประเภท</th>
                 <th className="p-4">สถานะ</th>
+                <th className="p-4">เหตุผล</th>
                 <th className="p-4 text-center">จัดการ</th>
               </tr>
             </thead>
@@ -173,6 +174,7 @@ export default function TimeAttendanceHR() {
                       {item.status}
                     </span>
                   </td>
+                  <td className="p-4">{item.reason}</td>
                   <td className="p-4 text-center">
                     <button
                       onClick={() => {

@@ -224,7 +224,7 @@ export default function Roles() {
 
                                 <div className="flex flex-col gap-2 pt-4 border-t border-gray-200">
                                     <span className="text-black text-xs flex items-center gap-1">
-                                        <Key size={14} className="text-[#6D6D6D]" /> สิทธิ์การเข้าถึง
+                                        <Key size={18} className="text-[#6D6D6D]" /> สิทธิ์การเข้าถึง
                                     </span>
                                     <div className="w-full flex flex-wrap gap-2 mt-1">
                                         {role.permissions.slice(0, 10).map((permId) => (

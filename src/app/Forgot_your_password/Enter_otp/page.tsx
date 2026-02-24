@@ -78,50 +78,50 @@ export default function Enter_otp() {
             setIsLoading(false);
         }
     };
-
     return (
-        <div className="bg-white w-full h-screen flex items-center justify-center">
-            <div className="absolute top-3 left-3">
-                <Image src="/images/LOGO Employee Hub-Photoroom 1.png" alt="Logo" width={200} height={200} />
+        <div className="min-h-screen flex items-center justify-between font-montserrat bg-white">
+            <div className="flex flex-col items-left justify-center h-screen ml-[3%] mr-[3%]">
+                <Image src="/images/LOGO Employee Hub-Photoroom 1.png" alt="Logo" width={704.29} height={606} />
             </div>
-            <div className="bg-[#D9D9D9] w-[60%] h-[80%] flex flex-col items-center justify-center gap-4 rounded-3xl">
-                <h1 className="text-6xl font-extrabold text-black font-[Montserrat]">Forgot password</h1>
-                <h4 className="text-2xl font-medium text-black font-[Montserrat]">Enter the code that was sent to</h4>
+            <div className="bg-[#0D274E] h-screen w-[60%] flex flex-col items-right rounded-l-[100px]">
+                <div className="flex flex-col items-center justify-center h-screen mr-[3%] ml-[3%] gap-[3em]">
+                    <h1 className="text-6xl font-extrabold text-white font-[Montserrat]">Forgot password</h1>
+                    <div className="flex flex-col gap-2">
+                        <h4 className="text-2xl font-medium text-white font-[Montserrat]">Enter the code that was sent to</h4>
+                        <h4 className="text-2xl font-bold text-white font-[Montserrat]">{email || "Loading..."}</h4>
+                    </div>
                 
-                <h4 className="text-2xl font-bold text-black font-[Montserrat]">
-                    {email || "Loading..."}
-                </h4>
-                
-                <h5 className="text-l  text-black font-[Montserrat]">Enter 6-digit Code  we have sand to you </h5>
-                <div className="w-[60%] flex flex-row items-center justify-between gap-2">
-                    {otp.map((data, index) => (
-                        <input
-                            key={index}
-                            type="text"
-                            maxLength={1}
-                            className="w-14 h-15 bg-white rounded-lg text-black shadow-2xl text-center text-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            value={data}
-                            onChange={(e) => handleChange(e, index)}
-                            onKeyDown={(e) => handleKeyDown(e, index)}
-                            ref={(el) => { inputRefs.current[index] = el; }}
-                        />
-                    ))}
+                    <h5 className="text-l  text-white font-[Montserrat]">Enter 6-digit Code  we have sand to you </h5>
+                        <div className="w-[60%] flex flex-row items-center justify-between gap-2">
+                            {otp.map((data, index) => (
+                            <input
+                                key={index}
+                                type="text"
+                                maxLength={1}
+                                className="w-12 h-15 bg-white rounded-lg text-black shadow-2xl text-center text-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                value={data}
+                                onChange={(e) => handleChange(e, index)}
+                                onKeyDown={(e) => handleKeyDown(e, index)}
+                                ref={(el) => { inputRefs.current[index] = el; }}
+                            />
+                            ))}
+                            <button
+                                onClick={handleRequestOTP}
+                                disabled={isLoading}
+                                className="cursor-pointer w-fit px-3 h-12 bg-[#D87031] rounded-lg text-white hover:bg-[#81441e] transition-all duration-300 hover:scale-105 disabled:opacity-80 disabled:hover:scale-90"
+                            >
+                                รับรหัส OTP
+                            </button>
+                        </div>
                     <button
-                        onClick={handleRequestOTP}
+                        type="button"
+                        onClick={handleVerifyOTP}
                         disabled={isLoading}
-                        className="cursor-pointer w-fit px-3 h-12 bg-[#D87031] rounded-lg text-white hover:bg-[#81441e] transition-all duration-300 hover:scale-105 disabled:opacity-80 disabled:hover:scale-90"
+                        className="cursor-pointer w-fit px-16 bg-[#D87031] text-white py-3 rounded-full font-bold hover:bg-[#81441e] transition-all duration-300 hover:scale-105 text-3xl disabled:opacity-80 disabled:hover:scale-90 mt-10"
                     >
-                        รับรหัส OTP
+                        Next
                     </button>
                 </div>
-                <button
-                    type="button"
-                    onClick={handleVerifyOTP}
-                    disabled={isLoading}
-                    className="cursor-pointer w-fit px-16 bg-[#D87031] text-white py-3 rounded-full font-bold hover:bg-[#81441e] transition-all duration-300 hover:scale-105 text-3xl disabled:opacity-80 disabled:hover:scale-90 mt-10"
-                >
-                    Next
-                </button>
             </div>
         </div>
     );

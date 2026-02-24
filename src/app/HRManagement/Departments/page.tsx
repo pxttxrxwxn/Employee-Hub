@@ -27,7 +27,7 @@ export default function Departments() {
     const [deptTh, setDeptTh] = useState("");
     const [description, setDescription] = useState("");
     const [positions, setPositions] = useState<Position[]>([
-        { en: "Software Development Manager", th: "ผู้จัดการแผนกพัฒนาระบบ" }
+        { en: "", th: "" }
     ]);
     const [departmentList, setDepartmentList] = useState<Department[]>([]);
     const [showDetailModal, setShowDetailModal] = useState(false);
