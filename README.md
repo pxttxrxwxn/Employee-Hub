@@ -26,15 +26,17 @@
 -   **State Management:** React Hooks / Context API
 
 ### Backend & Infrastructure
--   **Framework:** [Hono](https://hono.dev/) 
--   **Runtime:** [Cloudflare Workers](https://workers.cloudflare.com/) 
--   **Database:** [Cloudflare D1](https://developers.cloudflare.com/d1/) 
+-   **Framework:** [Hono](https://hono.dev/)
+-   **Runtime:** [Cloudflare Workers](https://workers.cloudflare.com/)
+-   **Database:** [Cloudflare D1](https://developers.cloudflare.com/d1/)
+-   **Email Service:** [Resend](https://resend.com/)
+-   **Domain & DNS:** [Namecheap](https://www.namecheap.com/)
 
 ## Team Diao koy tang
 | **Student ID** | **Name**               |
 |-----------------|------------------------|
 | 67023008        | Apinya Sanghong        |
-| 67025077        | Supharoke Roopkhamdee     | 
+| 67025077        | Supharoke Roopkhamdee     |
 | 67026427        | Pattarawin Rungpanarat |
 
 ## Figma
