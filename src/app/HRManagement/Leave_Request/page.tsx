@@ -472,7 +472,7 @@ export default function Leave_Request() {
             )}
 
             {showDeleteModal && (
-                <div className="fixed inset-0 z-60 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                <div className="fixed inset-0 z-60 flex items-center justify-center bg-black/50">
                     <div className="bg-white w-100 rounded-xl p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
                         <div className="flex flex-col items-center text-center">
                             <div className="bg-red-100 p-3 rounded-full mb-4">
