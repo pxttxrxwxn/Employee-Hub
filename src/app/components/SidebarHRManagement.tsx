@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { User, Clock, Users, Trello, Shield, FileText, LogOut } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -71,7 +72,7 @@ export default function Sidebar() {
           const isActive = pathname === m.path;
 
           return (
-            <a
+            <Link
               key={i}
               href={m.path}
               className={`flex items-center gap-3 px-3 py-3 rounded-xl cursor-pointer transition-colors
@@ -82,7 +83,7 @@ export default function Sidebar() {
                 <p className="text-[19px] font-[Prompt]">{m.label}</p>
                 <p className="text-[14px] text-gray-400 font-[montserrat]">{m.sub}</p>
               </div>
-            </a>
+            </Link>
           );
         })}
       </nav>
