@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Montserrat, Prompt } from "next/font/google";
+import RefreshOnBack from './components/RefreshOnBack';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${geistMontserrat.variable} ${geistPrompt.variable} antialiased`}
       >
+        <RefreshOnBack />
         {children}
       </body>
     </html>
