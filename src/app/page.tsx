@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import { useState, useEffect, Suspense } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { apiFetch, API_URL } from "./utils/api";
 import Link from "next/link";
 
 function LoginContent() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -34,9 +33,9 @@ function LoginContent() {
         localStorage.setItem("user", JSON.stringify(data.user));
         document.cookie = `token=${data.token}; path=/; max-age=${60 * 60 * 24 * 7}; Secure; SameSite=Strict`;
         if (data.user.role.name_en === "HR Management") {
-          router.replace("/HRManagement/Profile");
+          window.location.replace("/HRManagement/Profile");
         } else if (data.user.role.name_en === "Employee") {
-          router.replace("/Employees/Profile");
+          window.location.replace("/Employees/Profile");
         }
       } catch (err: unknown) {
         if (err instanceof Error) {
