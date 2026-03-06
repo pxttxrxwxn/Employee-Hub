@@ -29,11 +29,11 @@ function AuthCallbackContent() {
                 localStorage.setItem("user", JSON.stringify(user));
                 document.cookie = `token=${token}; path=/; max-age=${60 * 60 * 24 * 7}; Secure; SameSite=Strict`;
                 if (user.role?.name_en === "HR Management") {
-                    router.replace("/HRManagement/Profile");
+                    window.location.replace("/HRManagement/Profile");
                 } else if (user.role?.name_en === "Employee") {
-                    router.replace("/Employees/Profile");
+                    window.location.replace("/Employees/Profile");
                 } else {
-                    router.replace("/Employees/Profile");
+                    window.location.replace("/Employees/Profile");
                 }
             } catch (e) {
                 console.error("Error parsing user data", e);

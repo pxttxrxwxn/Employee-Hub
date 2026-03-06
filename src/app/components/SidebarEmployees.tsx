@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { User, Clock, FileText, LogOut } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -69,7 +68,7 @@ export default function SidebarEmployees() {
           const isActive = pathname === m.path;
 
           return (
-            <Link
+            <a
               key={i}
               href={m.path}
               className={`flex items-center gap-3 px-3 py-3 rounded-xl cursor-pointer transition-colors
@@ -80,7 +79,7 @@ export default function SidebarEmployees() {
                 <p className="text-[18px] font-[Prompt]">{m.label}</p>
                 <p className="text-[14px] text-gray-400 font-[montserrat]">{m.sub}</p>
               </div>
-            </Link>
+            </a>
           );
         })}
       </nav>
